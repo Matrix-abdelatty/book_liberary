@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock title %}
+{% block content %}
+
+  <h1>My Library</h1>
+  {% if all_books_1 == [] %}The library is empty{% endif %}
+  <ul>
+    {% for book in all_books_1: %}
+      <li>
+        <a href=" {{ url_for('delete', id=book.id) }}  ">Delete</a>
+        {{ book.id }} {{ book.title }} - {{ book['author'] }} - {{ book['rating'] }}
+        <a href="{{ url_for('edit_rating', id=book.id) }}">Edit Rating</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{{ url_for("add_book") }}">Add New Book</a>
+{% endblock content %}

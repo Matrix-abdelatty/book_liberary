@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+  logout
+{% endblock title %}
+{% block content %}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}<li>{{ message }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <h2>
+    Want to re <a href="{{ url_for("login") }}">login ?</a>
+  </h2>
+{% endblock content %}
